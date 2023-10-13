@@ -1,0 +1,13 @@
+[package]
+name = "foo"
+version = "0.0.0"
+edition = "2021"
+
+[lib]
+path = "src/lib/mod.rs"
+
+[dependencies]
+anyhow = { version = "1.0", features = ["backtrace"] }
+clap = { version = "4.4", features = ["derive"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "local-time"] }
