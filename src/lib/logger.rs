@@ -1,3 +1,6 @@
+// See:
+// - https://github.com/tokio-rs/tracing/blob/v0.1.x/examples/examples/fmt-multiple-writers.rs
+
 use std::path::Path;
 
 use tracing_appender::non_blocking::WorkerGuard;
