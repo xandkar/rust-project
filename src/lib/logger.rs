@@ -8,11 +8,12 @@ pub struct Guard {
 }
 
 pub fn init<P: AsRef<Path>>(debug: bool, dir: P) -> anyhow::Result<Guard> {
+    let dir = dir.as_ref();
     let (writer_file_debug, guard_debug) = tracing_appender::non_blocking(
-        tracing_appender::rolling::daily(&dir, "debug.log"),
+        tracing_appender::rolling::daily(dir, "debug.log"),
     );
     let (writer_file_trace, guard_trace) = tracing_appender::non_blocking(
-        tracing_appender::rolling::daily(&dir, "trace.log"),
+        tracing_appender::rolling::daily(dir, "trace.log"),
     );
     let layer_stderr = fmt::Layer::new()
         .with_writer(std::io::stderr)
